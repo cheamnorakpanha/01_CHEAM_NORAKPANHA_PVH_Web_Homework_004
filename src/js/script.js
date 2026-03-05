@@ -12,9 +12,8 @@ const confirmDeleteBtn = document.getElementById("confirmDeleteBtn");
 const cancelDeleteBtn = document.getElementById("cancelDeleteBtn");
 const cancelEditBtn = document.getElementById("cancelEditBtn");
 
-const table = document.getElementById("taskTable");
-
 const tasks = [];
+const table = document.getElementById("taskTable");
 
 let selectedPriority = "";
 let selectedStatus = "";
@@ -76,6 +75,15 @@ document.querySelectorAll(".priority").forEach(btn => {
       btn.classList.add("bg-green-500", "text-white");
     }
   });
+});
+
+// Cancel Edit Button
+cancelEditBtn.addEventListener("click", () => {
+
+  dialog.close();
+
+  resetForm();
+
 });
 
 // Status
@@ -273,12 +281,3 @@ function deleteTask(index) {
 
   };
 }
-
-// Cancel Edit Button
-cancelEditBtn.addEventListener("click", () => {
-
-  dialog.close();
-
-  resetForm();
-
-});
