@@ -1,3 +1,7 @@
 @import "tailwindcss";
 
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.6);
+}
+
 /* npx @tailwindcss/cli -i ./src/css/input.css -o ./src/css/output.css --watch */

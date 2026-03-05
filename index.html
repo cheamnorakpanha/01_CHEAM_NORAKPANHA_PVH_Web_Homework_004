@@ -1,17 +1,142 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./src/css/output.css" />
-    <title>Homework 004</title>
-  </head>
-  <body>
-    <div class="flex justify-center items-center h-screen">
-      <h1 class="text-red-800 text-3xl text-center font-bold">
-        This is homework 004
-      </h1>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./src/css/output.css" />
+  <title>My Task</title>
+</head>
+
+<body class="bg-cyan-200">
+  <div class="max-w-7xl mx-auto my-16">
+    <!-- Task List -->
+    <div class="flex justify-between">
+      <h1 class="text-5xl font-bold">Task List</h1>
+      <button id="openDialog"
+        class="text-md text-white font-bold bg-purple-800 px-6 py-3 rounded-2xl cursor-pointer hover:bg-purple-900 transition ease-in-out duration-300">
+        Add Task
+      </button>
     </div>
-  </body>
-  <script src="./src/js/script.js"></script>
+
+    <!-- Task Table -->
+    <div class="overflow-x-auto">
+      <table class="w-full text-left border-separate border-spacing-y-6">
+        <thead>
+          <tr class="bg-white">
+            <td class="px-16 py-6 rounded-l-3xl text-cyan-400 text-2xl font-bold">
+              Task
+            </td>
+            <td class="px-6 py-6 text-cyan-400 text-2xl font-bold">
+              Priority
+            </td>
+            <td class="px-6 py-6 text-cyan-400 text-2xl font-bold">Status</td>
+            <td class="px-6 py-6 rounded-r-3xl text-center text-yellow-600 text-2xl font-bold">
+              Action
+            </td>
+          </tr>
+        </thead>
+
+        <tbody id="taskTable">
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Task Dialogue -->
+  <dialog id="taskDialog" class="rounded-2xl p-8 w-125 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+    <div class="flex justify-between items-center mb-6">
+      <h2 id="dialogTitle" class="text-2xl font-bold">Add Task</h2>
+
+      <button id="closeDialog">
+        <i data-lucide="x" class="cursor-pointer"></i>
+      </button>
+    </div>
+
+    <!-- Task -->
+    <label class="block mb-2 font-bold">Task</label>
+    <input id="taskInput" type="text" placeholder="Web Homework"
+      class="w-full border-2 border-cyan-300 rounded-lg px-4 py-2 mb-6" />
+
+    <!-- Priority -->
+    <label class="block mb-2 font-bold">Priority</label>
+    <div class="flex gap-4 mb-6">
+      <button class="priority border-2 border-red-500 text-red-500 px-4 py-1 rounded-full transition duration-300"
+        data-priority="High">
+        High
+      </button>
+
+      <button class="priority border-2 border-yellow-500 text-yellow-500 px-4 py-1 rounded-full transition duration-300"
+        data-priority="Medium">
+        Medium
+      </button>
+
+      <button class="priority border-2 border-green-500 text-green-500 px-4 py-1 rounded-full transition duration-300"
+        data-priority="Low">
+        Low
+      </button>
+    </div>
+
+    <!-- Status -->
+    <label class="block mb-2 font-bold">Status</label>
+    <div class="flex gap-4 mb-6">
+      <button
+        class="status border-2 border-cyan-400 text-cyan-400 px-4 py-1 rounded-full transition duration-300 ease-in-out"
+        data-status="To Do">
+        To Do
+      </button>
+
+      <button
+        class="status border-2 border-cyan-400 text-cyan-400 px-4 py-1 rounded-full transition duration-300 ease-in-out"
+        data-status="Progress">
+        Progress
+      </button>
+
+      <button
+        class="status border-2 border-cyan-400 text-cyan-400 px-4 py-1 rounded-full transition duration-300 ease-in-out"
+        data-status="Done">
+        Done
+      </button>
+    </div>
+
+    <div class="flex justify-end">
+      <button id="addTaskBtn"
+        class="bg-purple-800 text-white px-6 py-2 rounded-xl hover:bg-purple-900 transition duration-300 ease-in-out cursor-pointer">
+        Add
+      </button>
+    </div>
+  </dialog>
+
+  <!-- Delete Dialog -->
+  <dialog id="confirmDeleteDialog"
+    class="rounded-2xl p-8 w-130 text-center fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+    <h2 class="text-red-600 text-2xl font-bold mb-6">Are you sure ?</h2>
+    <div class="flex justify-center mb-6">
+      <i data-lucide="triangle-alert" class="text-red-500 w-25 h-25"></i>
+    </div>
+    <div class="flex justify-center gap-6">
+
+      <button id="confirmDeleteBtn"
+        class="bg-red-500 text-white px-6 py-2 rounded-xl hover:bg-red-600 transition duration-300">
+        Yes
+      </button>
+
+      <button id="cancelDeleteBtn"
+        class="bg-blue-500 text-white px-6 py-2 rounded-xl hover:bg-blue-600 transition duration-300">
+        No
+      </button>
+
+    </div>
+  </dialog>
+</body>
+
+<script src="./src/js/script.js"></script>
+
+<!-- Lucide icons lib -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+  lucide.createIcons();
+</script>
+
 </html>
